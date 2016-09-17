@@ -26,10 +26,15 @@ describe('printStudentNumbers', ()=> {
       expect(number).toEqual('Whizz');
     });
 
-    // it('is multiple of many special numbers', ()=> {
-    //   const number = processNumber(15);
-    //   expect(number).toEqual('FizzBuzz');
-    // });
+    it('times(3,5)=>FizzBuzz', ()=> {
+      const number = processNumber(15, specialNumbers);
+      expect(number).toEqual('FizzBuzz');
+    });
+
+    it('includes(3)=>Fizz', ()=> {
+      const number = processNumber(35, specialNumbers);
+      expect(number).toEqual('Fizz');
+    });
   });
 
 });
