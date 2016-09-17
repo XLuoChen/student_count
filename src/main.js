@@ -4,15 +4,12 @@ const processNumber = (studentNumber, specialNumbers) => {
     return {number: specialNumber, value: fixtureArray[index]};
   });
 
-  let output = '';
-  for (let item of specialArray) {
-    if (!studentNumber.toString().includes(specialArray[0].number)) {
-      if (studentNumber % item.number === 0) {
-        output += item.value;
-      }
-    } else {
-      output = specialArray[0].value;
-    }
+  let output;
+  var firstSpecialNumber = specialArray[0];
+  if (!studentNumber.toString().includes(firstSpecialNumber.number)) {
+    output = specialArray.map(item => studentNumber % item.number === 0 ? item.value : '').join('');
+  } else {
+    output = firstSpecialNumber.value;
   }
 
   return output === '' ? studentNumber : output;
