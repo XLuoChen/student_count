@@ -1,36 +1,33 @@
 'use strict';
-const processNumber = require('../src/main');
+const sayNumber = require('../src/main');
 
-describe('processNumber', ()=> {
-  const specialNumbers = [3, 5, 7];
+describe('sayNumber', ()=> {
 
-  it('is not special number', ()=> {
-    const number = processNumber(1, specialNumbers);
-    expect(number).toEqual(1);
+  describe('contains first special number', () => {
+
+    it('includes(3)=>Fizz', ()=> {
+      const number = sayNumber(35);
+      expect(number).toEqual('Fizz');
+    });
   });
 
-  it('times(3)=>Fizz', ()=> {
-    const number = processNumber(9, specialNumbers);
-    expect(number).toEqual('Fizz');
+  describe('not contains first special number', () => {
+
+    it('times(5)=>Buzz', ()=> {
+      const number = sayNumber(10);
+      expect(number).toEqual('Buzz');
+    });
+
+    it('times(3,5)=>FizzBuzz', ()=> {
+      const number = sayNumber(15);
+      expect(number).toEqual('FizzBuzz');
+    });
   });
 
-  it('times(5)=>Buzz', ()=> {
-    const number = processNumber(10, specialNumbers);
-    expect(number).toEqual('Buzz');
-  });
-
-  it('times(7)=>Whizz', ()=> {
-    const number = processNumber(14, specialNumbers);
-    expect(number).toEqual('Whizz');
-  });
-
-  it('times(3,5)=>FizzBuzz', ()=> {
-    const number = processNumber(15, specialNumbers);
-    expect(number).toEqual('FizzBuzz');
-  });
-
-  it('includes(3)=>Fizz', ()=> {
-    const number = processNumber(35, specialNumbers);
-    expect(number).toEqual('Fizz');
+  describe('others', () => {
+    it('is not times special number', ()=> {
+      const number = sayNumber(1);
+      expect(number).toEqual(1);
+    });
   });
 });

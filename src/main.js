@@ -1,18 +1,20 @@
-const processNumber = (studentNumber, specialNumbers) => {
-  const fixtureArray = ['Fizz', 'Buzz', 'Whizz'];
-  const specialArray = specialNumbers.map((specialNumber, index)=> {
-    return {number: specialNumber, value: fixtureArray[index]};
+const loadRules = require('./fixture');
+
+const sayNumber = (studentNumber) => {
+  const rules = loadRules();
+  const specialArray = rules.specialNumbers.map((specialNumber, index)=> {
+    return {number: specialNumber, value: rules.outputs[index]};
   });
 
-  let output;
-  var firstSpecialNumber = specialArray[0];
+  let saying;
+  const firstSpecialNumber = specialArray[0];
   if (!studentNumber.toString().includes(firstSpecialNumber.number)) {
-    output = specialArray.map(item => studentNumber % item.number === 0 ? item.value : '').join('');
+    saying = specialArray.map(item => studentNumber % item.number === 0 ? item.value : '').join('');
   } else {
-    output = firstSpecialNumber.value;
+    saying = firstSpecialNumber.value;
   }
 
-  return output === '' ? studentNumber : output;
+  return saying === '' ? studentNumber : saying;
 };
 
-module.exports = processNumber;
+module.exports = sayNumber;
