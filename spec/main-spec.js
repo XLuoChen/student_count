@@ -7,25 +7,29 @@ describe('printStudentNumbers', ()=> {
 
   describe('processNumber', ()=> {
     it('is not special number', ()=> {
-      const number = processNumber(1);
+      const number = processNumber(1, specialNumbers);
       expect(number).toEqual(1);
     });
 
-    it('is the special number`s multiple but not includes first special number', ()=> {
-      const number = processNumber(9);
+    it('times(3)=>Fizz', ()=> {
+      const number = processNumber(9, specialNumbers);
       expect(number).toEqual('Fizz');
     });
 
-    it('is the special number`s multiple but not includes first special number', ()=> {
-      const number = processNumber(10);
+    it('times(5)=>Buzz', ()=> {
+      const number = processNumber(10, specialNumbers);
       expect(number).toEqual('Buzz');
     });
 
-    it('is the special number`s multiple but not includes first special number', ()=> {
-      const number = processNumber(14);
+    it('times(7)=>Whizz', ()=> {
+      const number = processNumber(14, specialNumbers);
       expect(number).toEqual('Whizz');
     });
 
+    // it('is multiple of many special numbers', ()=> {
+    //   const number = processNumber(15);
+    //   expect(number).toEqual('FizzBuzz');
+    // });
   });
 
 });
