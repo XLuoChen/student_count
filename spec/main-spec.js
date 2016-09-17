@@ -12,9 +12,20 @@ describe('printStudentNumbers', ()=> {
     });
 
     it('is the special number`s multiple but not includes first special number', ()=> {
+      const number = processNumber(9);
+      expect(number).toEqual('Fizz');
+    });
+
+    it('is the special number`s multiple but not includes first special number', ()=> {
       const number = processNumber(10);
       expect(number).toEqual('Buzz');
     });
+
+    it('is the special number`s multiple but not includes first special number', ()=> {
+      const number = processNumber(14);
+      expect(number).toEqual('Whizz');
+    });
+
   });
 
 });

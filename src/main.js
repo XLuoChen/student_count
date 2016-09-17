@@ -6,8 +6,12 @@ const printStudentNumber = ()=> {
 };
 
 const processNumber = (studentNumber) => {
-  if (studentNumber % 5 === 0) {
+  if (studentNumber % 3 === 0) {
+    return 'Fizz';
+  } else if (studentNumber % 5 === 0) {
     return 'Buzz';
+  } else if (studentNumber % 7 === 0) {
+    return 'Whizz';
   }
 
   return studentNumber;
